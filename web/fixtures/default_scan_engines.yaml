@@ -1,0 +1,96 @@
+- model: scanEngine.enginetype
+  pk: 1
+  fields:
+    engine_name: Discovery
+    subdomain_discovery: true
+    waf_detection: false
+    dir_file_fuzz: false
+    port_scan: true
+    fetch_url: true
+    vulnerability_scan: false
+    osint: false
+    screenshot: true
+    yaml_configuration: "subdomain_discovery:\r\n  uses_tools: [ amass-passive, assetfinder, sublist3r, oneforall, subfinder, chaos, sonarbyte, crobat, ctfr, crtsh, waywayback, gau, github-subdomains, gitlab-subdomains, subdomainizer, puredns, cero, subress, crawlers ]\r\n  threads: 120\r\n  use_amass_config: true\r\n
+      \ use_subfinder_config: true\r\n  # amass_wordlist: default\r\n  puredns_wordlist: default\r\n  puredns_ratelimit: 8000\r\n  generate_custom_wordlist: true\r\n  generate_permutations: true\r\n  permutation_tools: [ str-replace mksub ripgen goaltdns gotator ]\r\n  permutation_level: 1\r\n  alive_only: true\r\n  filter_wildcard: true # works only with alive only true\r\n  chaos_api: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\r\n  github_api: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\r\n  gitlab_api: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\r\n  validate_resolvers: true\r\n  dnsvalidator_threads: 500\r\n\r\nscreenshot:\r\n
+      \ timeout: 10\r\n  threads: 50\r\n\r\nport_scan:\r\n  ports: [ top-100 ]\r\n
+      \ rate: 3000\r\n  use_naabu_config: false\r\n  # exclude_ports: [80, 8080]\r\n\r\nosint:\r\n
+      \ discover: [ emails, metainfo, employees ]\r\n  intensity: normal\r\n  # intensity:
+      deep\r\n  dork: [ stackoverflow, 3rdparty, social_media, project_management,
+      code_sharing, config_files, jenkins, wordpress_files, cloud_buckets, php_error,
+      exposed_documents, struts_rce, db_files, traefik, git_exposed ]\r\n\r\ndir_file_fuzz:\r\n
+      \ wordlist: default\r\n  use_extensions: [ jsp, jsf, jspx, jsfx, xhtml, do, cfm, htm, html, php, git, yaml, conf, db, mysql, bak, asp, aspx, asmx, ashx, txt, conf, sql, json ]\r\n  threads: 100\r\n  stop_on_error:
+      false\r\n  follow_redirect: false\r\n  auto_calibration: true\r\n  timeout:
+      10\r\n  # delay: \"0.1-0.2\"\r\n  # match_http_status: '200, 204'\r\n  # max_time:
+      0\r\n  recursive: false\r\n  recursive_level: 1\r\n\r\nfetch_url:\r\n  uses_tools:
+      [ gauplus, hakrawler, waybackurls, gospider, katana ]\r\n  intensity: normal\r\n  #
+       intensity: deep\r\n  ignore_file_extension: [eot, jpeg, gif, css, tif, tiff, otf, woff2, ico, pdf, txt, js, doc, docx, ttf, woff, svg, png, jpg, mp4, xls, xlsx, ppt, pptx, bmp]\r\n  gf_patterns:
+      [ debug_logic, idor, img-traversal, interestingEXT, interestingparams, interestingsubs,
+      jsvar, lfi, rce, redirect, sqli, ssrf, ssti, xss]\r\n\r\nvulnerability_scan:\r\n
+      \ concurrency: 50\r\n  rate_limit: 150\r\n  timeout: 5\r\n  retries: 1\r\n  templates:
+      [ all ]\r\n  # custom_templates: []\r\n  severity: [ critical, high, medium,
+      low, info, unknown ]\r\n  all_ports: true\r\n  scan_intensity: normal\r\n  #scan_intensity: deep\r\n\r\n#custom_header: 'name: value'"
+    default_engine: true
+- model: scanEngine.enginetype
+  pk: 2
+  fields:
+    engine_name: Discovery Full Normal
+    subdomain_discovery: true
+    waf_detection: true
+    dir_file_fuzz: true
+    port_scan: true
+    fetch_url: true
+    vulnerability_scan: true
+    osint: false
+    screenshot: true
+    yaml_configuration: "subdomain_discovery:\r\n  uses_tools: [ amass-passive, assetfinder, sublist3r, oneforall, subfinder, chaos, sonarbyte, crobat, ctfr, crtsh, waywayback, gau, github-subdomains, gitlab-subdomains, subdomainizer, puredns, cero, subress, crawlers ]\r\n  threads: 120\r\n  use_amass_config: true\r\n
+      \ use_subfinder_config: true\r\n  # amass_wordlist: default\r\n  puredns_wordlist: default\r\n  puredns_ratelimit: 8000\r\n  generate_custom_wordlist: true\r\n  generate_permutations: true\r\n  permutation_tools: [ str-replace mksub ripgen goaltdns gotator ]\r\n  permutation_level: 1\r\n  alive_only: true\r\n  filter_wildcard: true # works only with alive only true\r\n  chaos_api: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\r\n  github_api: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\r\n  gitlab_api: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\r\n  validate_resolvers: true\r\n  dnsvalidator_threads: 500\r\n\r\nscreenshot:\r\n
+      \ timeout: 10\r\n  threads: 50\r\n\r\nport_scan:\r\n  ports: [ top-100 ]\r\n
+      \ rate: 3000\r\n  use_naabu_config: false\r\n  # exclude_ports: [80, 8080]\r\n\r\nosint:\r\n
+      \ discover: [ emails, metainfo, employees ]\r\n  intensity: normal\r\n  # intensity:
+      deep\r\n  dork: [ stackoverflow, 3rdparty, social_media, project_management,
+      code_sharing, config_files, jenkins, wordpress_files, cloud_buckets, php_error,
+      exposed_documents, struts_rce, db_files, traefik, git_exposed ]\r\n\r\ndir_file_fuzz:\r\n
+      \ wordlist: default\r\n  use_extensions: [ jsp, jsf, jspx, jsfx, xhtml, do, cfm, htm, html, php, git, yaml, conf, db, mysql, bak, asp, aspx, asmx, ashx, txt, conf, sql, json ]\r\n  threads: 100\r\n  stop_on_error:
+      false\r\n  follow_redirect: false\r\n  auto_calibration: true\r\n  timeout:
+      10\r\n  # delay: \"0.1-0.2\"\r\n  # match_http_status: '200, 204'\r\n  # max_time:
+      0\r\n  recursive: false\r\n  recursive_level: 1\r\n\r\nfetch_url:\r\n  uses_tools:
+      [ gauplus, hakrawler, waybackurls, gospider, katana]\r\n  intensity: normal\r\n  #
+       intensity: deep\r\n  ignore_file_extension: [eot, jpeg, gif, css, tif, tiff, otf, woff2, ico, pdf, txt, js, doc, docx, ttf, woff, svg, png, jpg, mp4, xls, xlsx, ppt, pptx, bmp]\r\n  gf_patterns:
+      [ debug_logic, idor, img-traversal, interestingEXT, interestingparams, interestingsubs,
+      jsvar, lfi, rce, redirect, sqli, ssrf, ssti, xss]\r\n\r\nvulnerability_scan:\r\n
+      \ concurrency: 50\r\n  rate_limit: 150\r\n  timeout: 5\r\n  retries: 1\r\n  templates:
+      [ all ]\r\n  # custom_templates: []\r\n  severity: [ critical, high, medium,
+      low, info, unknown ]\r\n  all_ports: true\r\n  scan_intensity: normal\r\n  #scan_intensity: deep\r\n\r\n#custom_header: 'name: value'"
+    default_engine: true
+- model: scanEngine.enginetype
+  pk: 3
+  fields:
+    engine_name: Discovery Full Deep
+    subdomain_discovery: true
+    waf_detection: true
+    dir_file_fuzz: true
+    port_scan: true
+    fetch_url: true
+    vulnerability_scan: true
+    osint: false
+    screenshot: true
+    yaml_configuration: "subdomain_discovery:\r\n  uses_tools: [ amass-passive, assetfinder, sublist3r, oneforall, subfinder, chaos, sonarbyte, crobat, ctfr, crtsh, waywayback, gau, github-subdomains, gitlab-subdomains, subdomainizer, puredns, cero, subress, crawlers ]\r\n  threads: 120\r\n  use_amass_config: true\r\n
+      \ use_subfinder_config: true\r\n  # amass_wordlist: default\r\n  puredns_wordlist: default\r\n  puredns_ratelimit: 8000\r\n  generate_custom_wordlist: true\r\n  generate_permutations: true\r\n  permutation_tools: [ str-replace mksub ripgen goaltdns gotator ]\r\n  permutation_level: 1\r\n  alive_only: true\r\n  filter_wildcard: true # works only with alive only true\r\n  chaos_api: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\r\n  github_api: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\r\n  gitlab_api: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\r\n  validate_resolvers: true\r\n  dnsvalidator_threads: 500\r\n\r\nscreenshot:\r\n
+      \ timeout: 10\r\n  threads: 50\r\n\r\nport_scan:\r\n  ports: [ top-100 ]\r\n
+      \ rate: 3000\r\n  use_naabu_config: false\r\n  # exclude_ports: [80, 8080]\r\n\r\nosint:\r\n
+      \ discover: [ emails, metainfo, employees ]\r\n  intensity: normal\r\n  # intensity:
+      deep\r\n  dork: [ stackoverflow, 3rdparty, social_media, project_management,
+      code_sharing, config_files, jenkins, wordpress_files, cloud_buckets, php_error,
+      exposed_documents, struts_rce, db_files, traefik, git_exposed ]\r\n\r\ndir_file_fuzz:\r\n
+      \ wordlist: default\r\n  use_extensions: [ jsp, jsf, jspx, jsfx, xhtml, do, cfm, htm, html, php, git, yaml, conf, db, mysql, bak, asp, aspx, asmx, ashx, txt, conf, sql, json ]\r\n  threads: 100\r\n  stop_on_error:
+      false\r\n  follow_redirect: false\r\n  auto_calibration: true\r\n  timeout:
+      10\r\n  # delay: \"0.1-0.2\"\r\n  # match_http_status: '200, 204'\r\n  # max_time:
+      0\r\n  recursive: false\r\n  recursive_level: 1\r\n\r\nfetch_url:\r\n  uses_tools:
+      [ gauplus, hakrawler, waybackurls, gospider, katana]\r\n  #intensity: normal\r\n  
+       intensity: deep\r\n  ignore_file_extension: [eot, jpeg, gif, css, tif, tiff, otf, woff2, ico, pdf, txt, js, doc, docx, ttf, woff, svg, png, jpg, mp4, xls, xlsx, ppt, pptx, bmp]\r\n  gf_patterns:
+      [ debug_logic, idor, img-traversal, interestingEXT, interestingparams, interestingsubs,
+      jsvar, lfi, rce, redirect, sqli, ssrf, ssti, xss]\r\n\r\nvulnerability_scan:\r\n
+      \ concurrency: 50\r\n  rate_limit: 150\r\n  timeout: 5\r\n  retries: 1\r\n  templates:
+      [ all ]\r\n  # custom_templates: []\r\n  severity: [ critical, high, medium,
+      low, info, unknown ]\r\n  all_ports: true\r\n  #scan_intensity: normal\r\n  scan_intensity: deep\r\n\r\n#custom_header: 'name: value'"
+    default_engine: true

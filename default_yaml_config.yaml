@@ -1,0 +1,70 @@
+subdomain_discovery:
+  uses_tools: [ amass-passive, assetfinder, sublist3r, oneforall, subfinder, chaos, sonarbyte, crobat, ctfr, crtsh, waywayback, gau, github-subdomains, gitlab-subdomains, subdomainizer, puredns, cero, subress, crawlers ]
+  threads: 120
+  use_amass_config: true
+  use_subfinder_config: true
+  # amass_wordlist: default
+  puredns_wordlist: default
+  puredns_ratelimit: 8000
+  generate_custom_wordlist: true
+  generate_permutations: true
+  permutation_tools: [ str-replace mksub ripgen goaltdns gotator ]
+  permutation_level: 1
+  alive_only: true
+  filter_wildcard: true # works only with alive only true
+  chaos_api: 32fad0d3ea351920b9fca4b699e042309d2511519a845b8f1f14b4e3474afa12
+  github_api: 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
+  gitlab_api: glpat-5zwF1fLsRSUHz36nUDBW
+  validate_resolvers: true
+  dnsvalidator_threads: 500
+  
+screenshot:
+  timeout: 10
+  threads: 50
+
+port_scan:
+  ports: [ top-100 ]
+  rate: 3000
+  use_naabu_config: false
+  # exclude_ports: [80, 8080]
+
+osint:
+  discover: [ emails, metainfo, employees ]
+  intensity: normal
+  # intensity: deep
+  dork: [ stackoverflow, 3rdparty, social_media, project_management, code_sharing, config_files, jenkins, wordpress_files, cloud_buckets, php_error, exposed_documents, struts_rce, db_files, traefik, git_exposed ]
+
+dir_file_fuzz:
+  wordlist: default
+  use_extensions: [ jsp, jsf, jspx, jsfx, xhtml, do, cfm, htm, html, php, git, yaml, conf, db, mysql, bak, asp, aspx, asmx, ashx, txt, conf, sql, json ]
+  threads: 100
+  stop_on_error: false
+  follow_redirect: false
+  auto_calibration: true
+  timeout: 10
+  # delay: "0.1-0.2"
+  # match_http_status: '200, 204'
+  # max_time: 0
+  recursive: false
+  recursive_level: 1
+
+fetch_url:
+  uses_tools: [ gauplus, hakrawler, waybackurls, gospider, katana ]
+  intensity: normal
+  # intensity: deep
+  ignore_file_extension: [eot, jpeg, gif, css, tif, tiff, otf, woff2, ico, pdf, txt, js, doc, docx, ttf, woff, svg, png, jpg, mp4, xls, xlsx, ppt, pptx, bmp]
+  gf_patterns: [ debug_logic, idor, img-traversal, interestingEXT, interestingparams, interestingsubs, jsvar, lfi, rce, redirect, sqli, ssrf, ssti, xss]
+
+vulnerability_scan:
+  concurrency: 50
+  rate_limit: 150
+  timeout: 5
+  retries: 1
+  templates: [ all ]
+  # custom_templates: []
+  severity: [ critical, high, medium, low, info, unknown ]
+  all_ports: true
+  scan_intensity: normal
+  #scan_intensity: deep
+
+# custom_header: 'name: value'
