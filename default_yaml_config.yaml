@@ -12,9 +12,9 @@ subdomain_discovery:
   permutation_level: 1
   alive_only: true
   filter_wildcard: true # works only with alive only true
-  chaos_api: 32fad0d3ea351920b9fca4b699e042309d2511519a845b8f1f14b4e3474afa12
-  github_api: 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
-  gitlab_api: glpat-5zwF1fLsRSUHz36nUDBW
+  chaos_api: []
+  github_api: []
+  gitlab_api: []
   validate_resolvers: true
   dnsvalidator_threads: 500
   

@@ -7,7 +7,7 @@ services:
     environment:
       - POSTGRES_DB=test_db
       - POSTGRES_USER=db_admin
-      - POSTGRES_PASSWORD=!qazXSW@#
+      - POSTGRES_PASSWORD=
       - POSTGRES_PORT=5432
     volumes:
       - postgres_data:/var/lib/postgresql/data/
@@ -43,7 +43,7 @@ services:
       - CELERY_BACKEND=redis://redis:6379/0
       - POSTGRES_DB=test_db
       - POSTGRES_USER=db_admin
-      - POSTGRES_PASSWORD=!qazXSW@#
+      - POSTGRES_PASSWORD=
       - POSTGRES_PORT=5432
     depends_on:
       - db
@@ -65,7 +65,7 @@ services:
       - CELERY_BACKEND=redis://redis:6379/0
       - POSTGRES_DB=test_db
       - POSTGRES_USER=db_admin
-      - POSTGRES_PASSWORD=!qazXSW@#
+      - POSTGRES_PASSWORD=
       - POSTGRES_PORT=5432
     volumes:
       - ./web:/usr/src/app
@@ -92,7 +92,7 @@ services:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_DB=test_db
       - POSTGRES_USER=db_admin
-      - POSTGRES_PASSWORD=!qazXSW@#
+      - POSTGRES_PASSWORD=
       - POSTGRES_PORT=5432
       # THIS IS A MUST FOR CHECKING UPDATE, EVERYTIME A COMMIT IS MERGED INTO
       # MASTER, UPDATE THIS!!! MAJOR.MINOR.PATCH https://semver.org/
